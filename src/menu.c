@@ -96,10 +96,10 @@ int quit_menu(int final_score) {
 
     char answer;
 
-    printf("Thank you for playing!\nYour final score is: %d\n", final_score);
+    printf("Thank you for playing!\nYour final score is: %d\n\n", final_score);
 
     while (1) {
-        printf("Play again?\nY/N\n");
+        printf("Would you like to:\n[P] play again\n[M] go back to the menu\n[Q] quit\n");
         while (1) {
             if (_kbhit()) {
                 answer = _getch();
@@ -108,11 +108,14 @@ int quit_menu(int final_score) {
             }
         }
 
-        if (answer=='y') {
+        if (answer == 'q') {
+            return 0;
+        }
+        else if (answer == 'p') {
             return 1;
         }
-        else if (answer == 'n') {
-            return 0;
+        else if (answer == 'm') {
+            return 2;
         }
         else{
             system("cls");
